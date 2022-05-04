@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { Donation } from 'src/app/models/donation'
+import { Donation } from 'src/app/models/donation';
+import { DonationService } from 'src/app/services/donation.service'
+import { Router } from '@angular/router';
+import { ForeignPoliticalEntityType} from 'src/app/enums/foreign-political-entity-type.enum';
+import { CoinType } from 'src/app/enums/coin-type.enum';
+
 @Component({
   selector: 'app-add-contribution',
   templateUrl: './add-contribution.component.html',
   styleUrls: ['./add-contribution.component.scss']
 })
 export class AddContributionComponent implements OnInit {
+
+  public foreignPoliticalEntityTypes = Object.values(ForeignPoliticalEntityType);
+  public coinsTypes = Object.values(CoinType);
 
   donationForm = new FormGroup({
     foreignPoliticalEntityName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z\-\u0590-\u05FF ]+$')]),
@@ -19,7 +27,9 @@ export class AddContributionComponent implements OnInit {
     });
 
 
-  constructor() { }
+  constructor( protected donationSvc: DonationService,
+              private router:Router
+   ) { }
 
  donation: Donation;
 
@@ -27,6 +37,20 @@ export class AddContributionComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.donationForm.value)
+    console.log(this.donationForm.value);
+    if(this.donationForm.valid){
+      this.donation = new Donation();
+      this.donation.foreignPoliticalEntityName = this.donationForm.controls['foreignPoliticalEntityName'].value;
+      this.donation.coinType = this.donationForm.controls['coinType'].value;
+      this.donation.donationDesignation = this.donationForm.controls['donationDesignation'].value;
+      this.donation.donationSum = parseInt(this.donationForm.controls['donationSum'].value);
+      this.donation.exchangeRateType = this.donationForm.controls['exchangeRateType'].value;
+      this.donation.foreignPoliticalEntityType = this.donationForm.controls['foreignPoliticalEntityType'].value;
+      this.donation.donationConditions = this.donationForm.controls['donationConditions'].value;
+
+      this.donationSvc.addDonation(this.donation);
+      this.router.navigate(['donations-list']);
+    }
+    else{ alert('הטופס אינו חוקי'); }
   }
 }

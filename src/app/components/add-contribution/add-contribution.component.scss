@@ -5,8 +5,10 @@ form.add-cont-form{
     .form-field {
         display: inline-block;
         margin-inline: 10px;
-        span.mat-form-field-required-marker {
-             color: red !important
-            }
+        ::ng-deep{
+           span.mat-form-field-required-marker {
+             color: red;
+            } 
+        }
     }
 }

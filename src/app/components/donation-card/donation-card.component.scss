@@ -1,0 +1,25 @@
+
+.donation-card-wrap{
+    min-width: 300px;
+    max-width: 500px;
+
+    .top-card-area{
+
+    }
+    form.edit-cont-form{
+
+        max-width: 700px;
+
+        .form-field {
+        
+            ::ng-deep{
+                mat-form-field{
+                    width: 100%;
+                }
+            span.mat-form-field-required-marker {
+                color: red;
+                } 
+            }
+        }
+    }
+}

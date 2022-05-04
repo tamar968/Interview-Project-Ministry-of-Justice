@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddContributionComponent } from './components/add-contribution/add-contribution.component';
+import { DonationsListComponent } from './components/donations-list/donations-list.component';
+
 
 const routes: Routes = [
   {
     path: '',
     component: AddContributionComponent
+  },
+  {
+    path: 'donations-list',
+    component: DonationsListComponent
   }
 ];
 
