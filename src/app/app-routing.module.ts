@@ -10,6 +10,10 @@ const routes: Routes = [
     component: AddContributionComponent
   },
   {
+    path: 'add-donation',
+    component: AddContributionComponent
+  },
+  {
     path: 'donations-list',
     component: DonationsListComponent
   }

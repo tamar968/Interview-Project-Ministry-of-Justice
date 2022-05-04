@@ -29,8 +29,7 @@
             <div class="form-field ">
                 <mat-form-field appearance="outline" color="primary">
                     <mat-label>סוג הישות המדינית הזרה</mat-label>
-                    <!-- <input  matInput required formControlName="foreignPoliticalEntityType" /> -->
-                    <mat-select formControlName="foreignPoliticalEntityType">
+                    <mat-select formControlName="foreignPoliticalEntityType" required>
                         <mat-option *ngFor="let foreignPoliticalEntityType of foreignPoliticalEntityTypes"
                                         [value]="foreignPoliticalEntityType">
                                 {{ foreignPoliticalEntityType }}
@@ -62,8 +61,7 @@
             <div class="form-field">
                 <mat-form-field appearance="outline" color="primary">
                     <mat-label>סוג מטבע</mat-label>
-                    <!-- <input matInput required  formControlName="coinType"/> -->
-                    <mat-select formControlName="coinType">
+                    <mat-select formControlName="coinType" required>
                         <mat-option *ngFor="let coinType of coinsTypes"
                                         [value]="coinType">
                                 {{ coinType }}
@@ -85,7 +83,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-end">
-            <button mat-stroked-button appearance="outline" type="reset" class="mx-2">ניקוי</button>
+            <button mat-stroked-button appearance="outline"  color="primary" type="reset" class="mx-2">ניקוי</button>
             <button mat-raised-button type="submit" color="primary" class="mx-2">שמירה</button> 
         </div>
       

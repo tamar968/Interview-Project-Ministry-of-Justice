@@ -1,10 +1,10 @@
-<div class="donation-card-wrap">
+<div class="donation-card-wrap" [ngClass]="{'edit-mode': editMode }">
     <div class="d-flex flex-row justify-content-between top-card-area">
         <div>
             <span class="font-weight-bold">{{ donation.foreignPoliticalEntityName }}</span>
-            <span>{{ donation.donationSum }}</span>
+            <span>{{ donation.donationSum }}</span><span>ש"ח</span>
         </div>
-        <div class="actions d-inline-block">
+        <div class="actions d-flex">
             <button mat-icon-button (click)="toggleMode()">
                 <mat-icon>edit</mat-icon>
             </button>
@@ -14,12 +14,12 @@
             <button mat-icon-button *ngif="!editMode">
                 <mat-icon>keyboard_arrow_down</mat-icon>
             </button>
-            <span>|</span>
+
             <ng-container *ngIf="editMode">
-                    <mat-icon color="primary">keyboard_arrow_up</mat-icon>
+                    <mat-icon color="primary" class="align-self-center">keyboard_arrow_up</mat-icon>
             </ng-container>
             <ng-container *ngIf="!editMode">
-                    <mat-icon color="primary">keyboard_arrow_down</mat-icon>
+                    <mat-icon color="primary"  class="align-self-center">keyboard_arrow_down</mat-icon>
             </ng-container>
             
         </div>
@@ -63,7 +63,7 @@
             <mat-form-field appearance="outline" color="primary">
                 <mat-label>סוג הישות המדינית הזרה</mat-label>
                 <!-- <input  matInput required formControlName="foreignPoliticalEntityType" /> -->
-                <mat-select formControlName="foreignPoliticalEntityType">
+                <mat-select formControlName="foreignPoliticalEntityType" required>
                     <mat-option *ngFor="let foreignPoliticalEntityType of foreignPoliticalEntityTypes"
                         [value]="foreignPoliticalEntityType">
                         {{ foreignPoliticalEntityType }}
@@ -93,8 +93,7 @@
         <div class="form-field">
             <mat-form-field appearance="outline" color="primary">
                 <mat-label>סוג מטבע</mat-label>
-                <!-- <input matInput required  formControlName="coinType"/> -->
-                <mat-select formControlName="coinType">
+                <mat-select formControlName="coinType" required>
                     <mat-option *ngFor="let coinType of coinsTypes" [value]="coinType">
                         {{ coinType }}
                     </mat-option>
@@ -114,7 +113,7 @@
             </mat-form-field>
         </div>
         <div class="d-flex justify-content-end">
-            <button mat-stroked-button appearance="outline" type="reset" class="mx-2">ניקוי</button>
+            <button mat-stroked-button appearance="outline" color="primary" type="reset" class="mx-2">ניקוי</button>
             <button mat-raised-button type="submit" color="primary" class="mx-2">שמירה</button>
         </div>
     </form>

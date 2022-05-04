@@ -35,9 +35,22 @@ $project-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($project-theme);
 
+$primary-color:#2196f3;
+$text-color:#0c3058;
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0;
-   font-family: Roboto, "Helvetica Neue", sans-serif;
+ #my-app{
+
+    html, body { height: 100%; }
+    body { margin: 0;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      color:$text-color;
+    }
+   .mat-button, .mat-stroked-button, .mat-flat-button,.mat-raised-button{
+      min-width: 200px;
+      border-radius: 50px;
+    }
+    .mat-stroked-button:not(.mat-button-disabled){
+      border-color: $primary-color;
+    }
  }

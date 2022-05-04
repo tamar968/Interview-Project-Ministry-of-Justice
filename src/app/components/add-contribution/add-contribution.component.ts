@@ -19,10 +19,10 @@ export class AddContributionComponent implements OnInit {
   donationForm = new FormGroup({
     foreignPoliticalEntityName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z\-\u0590-\u05FF ]+$')]),
     donationSum : new FormControl('', [Validators.required, Validators.pattern(/\-?\d*\.?\d{1,2}/)]),
-    foreignPoliticalEntityType : new FormControl('', [Validators.required]),
+    foreignPoliticalEntityType : new FormControl('', Validators.required),
     donationDesignation : new FormControl('', [Validators.required]),
     donationConditions: new FormControl(''),
-    coinType : new FormControl('', [Validators.required]),
+    coinType : new FormControl('', Validators.required),
     exchangeRateType : new FormControl('', [Validators.required]),
     });
 

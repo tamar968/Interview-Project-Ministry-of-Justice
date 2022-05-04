@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CoinType } from 'src/app/enums/coin-type.enum';
 import { ForeignPoliticalEntityType } from 'src/app/enums/foreign-political-entity-type.enum';
+import { DonationService } from 'src/app/services/donation.service';
 import { Donation } from '../../models/donation';
 
 @Component({
@@ -19,7 +20,8 @@ export class DonationCardComponent implements OnInit {
  public coinsTypes = Object.values(CoinType);
  
   donationForm: FormGroup;
-  constructor() { }
+
+  constructor( protected donationSvc: DonationService) { }
 
   toggleMode(){
     this.editMode = !this.editMode;
@@ -38,8 +40,22 @@ export class DonationCardComponent implements OnInit {
     });
   }
 
+ 
   submit(){
-    console.log(this.donationForm);
+    console.log(this.donationForm.value);
+    if(this.donationForm.valid){
+      this.donation = new Donation();
+      this.donation.foreignPoliticalEntityName = this.donationForm.controls['foreignPoliticalEntityName'].value;
+      this.donation.coinType = this.donationForm.controls['coinType'].value;
+      this.donation.donationDesignation = this.donationForm.controls['donationDesignation'].value;
+      this.donation.donationSum = parseInt(this.donationForm.controls['donationSum'].value);
+      this.donation.exchangeRateType = this.donationForm.controls['exchangeRateType'].value;
+      this.donation.foreignPoliticalEntityType = this.donationForm.controls['foreignPoliticalEntityType'].value;
+      this.donation.donationConditions = this.donationForm.controls['donationConditions'].value;
+
+      this.donationSvc.updateDonation(this.donation);
+    }
+    else{ alert('הטופס אינו חוקי'); }
   }
  
 }

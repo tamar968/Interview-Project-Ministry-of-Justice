@@ -36,6 +36,10 @@ export class DonationService {
   addDonation(donation:Donation) {
      this.donations.push(donation);
   }
+
+  updateDonation(donation:Donation) {
+    this.donations.push(donation);
+ }
   
   getDonationList(): Donation[] {
     return this.donations;

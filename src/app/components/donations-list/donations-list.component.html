@@ -1,4 +1,4 @@
-<p>donations-list works!!</p>
-<div *ngFor="let d of donationsList">donation
+<div *ngFor="let d of donationsList">
     <app-donation-card [donation]="d"></app-donation-card>
 </div>
+<button mat-raised-button (click)="addDonation()" color="primary">הוספת תרומה</button>
