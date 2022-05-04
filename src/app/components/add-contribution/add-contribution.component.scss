@@ -1,0 +1,12 @@
+form.add-cont-form{
+
+    max-width: 700px;
+
+    .form-field {
+        display: inline-block;
+        margin-inline: 10px;
+        span.mat-form-field-required-marker {
+             color: red !important
+            }
+    }
+}

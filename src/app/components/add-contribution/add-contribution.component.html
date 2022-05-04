@@ -1,0 +1,88 @@
+<div>
+    <p>הוספת דיווח על עמותה</p>
+    <form  (ngSubmit)="submit()" class="add-cont-form" [formGroup]="donationForm">
+        <div>
+            <div class="form-field form-field">
+                <mat-form-field appearance="outline" color="primary">
+                    <mat-label>שם הישות המדינית הזרה</mat-label>
+                    <input matInput required formControlName="foreignPoliticalEntityName" />
+                    <mat-error *ngIf="donationForm.controls['foreignPoliticalEntityName'].hasError('pattern') && !donationForm.controls['foreignPoliticalEntityName'].hasError('required')">
+                        אנא הכנס אותיות בעברית ואנגלית בלבד
+                      </mat-error>
+                      <mat-error *ngIf="donationForm.controls['foreignPoliticalEntityName'].hasError('required')">
+                        יש מלא שדה זה
+                      </mat-error>
+                </mat-form-field>
+                <!-- <mat-form-field appearance="outline" color="primary">
+                    <mat-label>שם הישות המדינית הזרה</mat-label>
+                    <input matInput required  [formControl]="foreignPoliticalEntityNameFormControl"  />
+                    <mat-error *ngIf="foreignPoliticalEntityNameFormControl.hasError('pattern') && !foreignPoliticalEntityNameFormControl.hasError('required')">
+                        אנא הכנס אותיות בעברית ואנגלית בלבד
+                      </mat-error>
+                      <mat-error *ngIf="foreignPoliticalEntityNameFormControl.hasError('required')">
+                        יש מלא שדה זה
+                      </mat-error>
+                </mat-form-field> -->
+            </div>
+            <div class="form-field">
+                <mat-form-field appearance="outline" color="primary">
+                    <mat-label>סכום התרומה</mat-label>
+                    <input name="test" matInput required formControlName="donationSum" />
+                    <mat-error *ngIf="donationForm.controls['donationSum'].hasError('pattern') && !donationForm.controls['donationSum'].hasError('required')">
+                        אנא הכנס מספר בלבד
+                      </mat-error>
+                    <mat-error *ngIf="donationForm.controls['donationSum'].hasError('required')">
+                        יש מלא שדה זה
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-field ">
+                <mat-form-field appearance="outline" color="primary">
+                    <mat-label>סוג הישות המדינית הזרה</mat-label>
+                    <input name="test" matInput required formControlName="foreignPoliticalEntityType" />
+                    <mat-error *ngIf="donationForm.controls['foreignPoliticalEntityType'].hasError('required')">
+                        יש מלא שדה זה
+                      </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="form-field w-100">
+            <mat-form-field appearance="outline" color="primary" class="w-100">
+                <mat-label>ייעוד התרומה</mat-label>
+                <input name="test" matInput required formControlName="donationDesignation"/>
+                <mat-error *ngIf="donationForm.controls['donationDesignation'].hasError('required')">
+                    יש מלא שדה זה
+                  </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="form-field w-100">
+            <mat-form-field appearance="outline" color="primary" class="w-100">
+                <mat-label>התנאים לתרומה</mat-label>
+                <input name="test" matInput formControlName="donationConditions" />
+            </mat-form-field>
+        </div>
+        <div>
+            <div class="form-field">
+                <mat-form-field appearance="outline" color="primary">
+                    <mat-label>סוג מטבע</mat-label>
+                    <input name="test" matInput required  formControlName="coinType"/>
+                    <mat-error *ngIf="donationForm.controls['coinType'].hasError('required')">
+                        יש מלא שדה זה
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-field">
+                <mat-form-field appearance="outline" color="primary">
+                    <mat-label>שער ההמרה</mat-label>
+                    <input name="test" matInput required formControlName='exchangeRateType'>
+                    <mat-error *ngIf="donationForm.controls['exchangeRateType'].hasError('required')">
+                        יש מלא שדה זה
+                      </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <button mat-raised-button type="submit" color="primary">שליחה</button>
+        <button mat-raised-button appearance="outline" type="reset">ניקוי</button>
+    </form>
+</div>
