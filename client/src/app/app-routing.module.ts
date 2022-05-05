@@ -4,16 +4,7 @@ import { AddContributionComponent } from './components/add-contribution/add-cont
 import { DonationsListComponent } from './components/donations-list/donations-list.component';
 
 
-const routes: Routes = [
-  // {
-  //   path: 'add-donation',
-  //   loadChildren: ()=> import('src/app/modules/contribution/contribution.module').then(m => m.ContributionModule)
-  // },
-  // {
-  //   path: 'donations-list',
-  //   component: DonationsListComponent
-  // }
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

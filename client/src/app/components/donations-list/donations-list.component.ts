@@ -12,15 +12,15 @@ import { Router } from '@angular/router';
 })
 export class DonationsListComponent implements OnInit {
 
-  donationsList: Donation[]
+  // donationsList: Donation[]
   dialog: any;
 
-  constructor(protected donationSvc: DonationService,
+  constructor(public donationSvc: DonationService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.donationsList = this.donationSvc.getDonationList();
+    this.donationSvc.getDonationList();
   }
   addDonation() {
     this.router.navigate(['add-donation']);

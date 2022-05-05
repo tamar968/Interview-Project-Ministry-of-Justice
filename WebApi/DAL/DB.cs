@@ -16,7 +16,7 @@ namespace DAL
                   CoinType= "שקל ישראלי חדש",
                   ExchangeRateType= 3.14
                 },
-            new Donation()  {
+           new Donation()  {
                   Id= 2,
                   ForeignPoliticalEntityName = "יישות2",
                   DonationSum= 100,

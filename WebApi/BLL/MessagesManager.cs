@@ -34,6 +34,7 @@ namespace BLL
                 smtp.Send(message);
             }
         }
+
         public static void HighDonation()
         {
             SendEmail("tamar96880@gmail.com", "התקבלה תרומה גבוהה במיוחד", "סכום התרומה בשח גדול מ – 10000 ");
