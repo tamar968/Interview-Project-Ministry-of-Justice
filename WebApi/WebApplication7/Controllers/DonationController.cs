@@ -1,4 +1,4 @@
-﻿using BLL.Models;
+﻿using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +14,20 @@ namespace API.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class DonationController : ApiController
     {
+        [HttpGet]
+        [Route("get")]
+        public IHttpActionResult Get()
+        {
+            try
+            {
+                return Ok(DonationManager.GetDonationsList());
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
+        
         [HttpPost]
         [Route("add")]
         public IHttpActionResult Add([FromBody] Donation newDonation)

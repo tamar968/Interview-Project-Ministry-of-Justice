@@ -46,6 +46,7 @@ export class DonationCardComponent implements OnInit {
     console.log(this.donationForm.value);
     if (this.donationForm.valid) {
       this.donation = new Donation();
+      this.donation.Id = this.donationForm.controls['id'].value;
       this.donation.ForeignPoliticalEntityName = this.donationForm.controls['foreignPoliticalEntityName'].value;
       this.donation.CoinType = this.donationForm.controls['coinType'].value;
       this.donation.DonationDesignation = this.donationForm.controls['donationDesignation'].value;
@@ -54,7 +55,7 @@ export class DonationCardComponent implements OnInit {
       this.donation.ForeignPoliticalEntityType = this.donationForm.controls['foreignPoliticalEntityType'].value;
       this.donation.DonationConditions = this.donationForm.controls['donationConditions'].value;
 
-      this.donationSvc.updateDonation(this.donation);
+      this.donationSvc.updateInDonationsList(this.donation);
       // this.editMode = false;
     }
     else { alert('הטופס אינו חוקי'); }

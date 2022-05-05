@@ -1,0 +1,9 @@
+C:\test\project\WebApi\DAL\bin\Debug\DAL.dll
+C:\test\project\WebApi\DAL\bin\Debug\DAL.pdb
+C:\test\project\WebApi\DAL\bin\Debug\DTO.dll
+C:\test\project\WebApi\DAL\bin\Debug\DTO.pdb
+C:\test\project\WebApi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\test\project\WebApi\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\test\project\WebApi\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\test\project\WebApi\DAL\obj\Debug\DAL.dll
+C:\test\project\WebApi\DAL\obj\Debug\DAL.pdb

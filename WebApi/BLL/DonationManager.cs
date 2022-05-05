@@ -3,15 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BLL.Models;
+using DAL;
+using DTO;
 
 namespace BLL
 {
     public static class DonationManager
     {
+        public static bool isValidDonation(Donation donation)
+        {
+            return Validation.IsNotEmpty(donation.ForeignPoliticalEntityName) && Validation.IsOnlyHebrewAndEnglishChars(donation.ForeignPoliticalEntityName) &&
+                Validation.IsNotEmpty(donation.CoinType) &&
+                Validation.IsNotEmpty(donation.DonationDesignation) && Validation.IsOnlyHebrewAndEnglishChars(donation.DonationDesignation) &&
+                Validation.IsNotEmpty(donation.DonationSum) &&
+                Validation.IsNotEmpty(donation.ExchangeRateType) &&
+                Validation.IsNotEmpty(donation.ForeignPoliticalEntityType);
+        }
+
+        public static List<Donation> GetDonationsList()
+        {
+            return DB.Donations;
+        }
+
         public static Donation AddDonation(Donation donation)
         {
-            if (donation.isValid())
+            if (isValidDonation(donation))
             {    
                 donation.Id = DB.Donations.Count + 1;//for debug only
                 DB.Donations.Add(donation);
@@ -27,13 +43,19 @@ namespace BLL
 
         public static Donation UpdateDonation(Donation donation)
         {
-            if (donation.isValid())
+            if (isValidDonation(donation))
             {
                 var res = DB.Donations.SingleOrDefault(d => d.Id == donation.Id);
                 if (res != null)
                 {
                     res.ForeignPoliticalEntityName = donation.ForeignPoliticalEntityName;
-                    //and all other properties...
+                    res.CoinType = donation.CoinType;
+                    res.ForeignPoliticalEntityType = donation.ForeignPoliticalEntityType;
+                    res.DonationDesignation = donation.DonationDesignation;
+                    res.DonationConditions = donation.DonationConditions;
+                    res.DonationSum = donation.DonationSum;
+                    res.ExchangeRateType = donation.ExchangeRateType;
+   
                     return res;
                 }
             }

@@ -19,14 +19,14 @@ namespace BLL
             return !string.IsNullOrEmpty(input);
         }
 
-        //public static bool IsNotEmpty(int input)
-        //{
-        //    return input != null;
-        //}
-        //public static bool IsNotEmpty(double input)
-        //{
-        //    return !string.IsNullOrEmpty(input);
-        //}
+        public static bool IsNotEmpty(int input)
+        {
+            return input != null;
+        }
+        public static bool IsNotEmpty(double input)
+        {
+            return  input != null;
+        }
 
         public static bool IsOnlyHebrewAndEnglishChars(string input)
         {
