@@ -1,8 +1,8 @@
 <div class="donation-card-wrap" [ngClass]="{'edit-mode': editMode }">
     <div class="d-flex flex-row justify-content-between top-card-area">
         <div class="p-2">
-            <span class="font-weight-bold">{{ donation.foreignPoliticalEntityName }}</span>
-            <span>{{ " "+donation.donationSum }}</span><span> ש"ח </span>
+            <span class="font-weight-bold">{{ donation.ForeignPoliticalEntityName }}</span>
+            <span>{{ " "+donation.DonationSum }}</span><span> ש"ח </span>
         </div>
         <div class="actions d-flex px-2">
             <button mat-icon-button (click)="toggleMode()">

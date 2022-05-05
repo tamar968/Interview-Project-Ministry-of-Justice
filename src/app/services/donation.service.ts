@@ -8,29 +8,35 @@ import { Donation } from '../models/donation';
   providedIn: 'root'
 })
 export class DonationService {
+
+  addToDonations(donation: Donation) {
+    this.addDonation(donation).subscribe(donation => {
+      this.donations.push(donation);
+    });;
+  }
   
   private baseUrl=AppComponent.getBaseUrl()+"/donation";  
 
   donations : Donation[] = [
     { 
-      id: 1,
-      foreignPoliticalEntityName: 'יישות1',
-      donationSum: "100",
-      foreignPoliticalEntityType: 'מדינה זרה',
-      donationDesignation: 'donationDesignation',
-      donationConditions: 'donationConditions',
-      coinType: 'דולר ארה"ב',
-      exchangeRateType: '3.14'
+      Id: 1,
+      ForeignPoliticalEntityName: 'יישות1',
+      DonationSum: "100",
+      ForeignPoliticalEntityType: 'מדינה זרה',
+      DonationDesignation: 'donationDesignation',
+      DonationConditions: 'donationConditions',
+      CoinType: 'דולר ארה"ב',
+      ExchangeRateType: '3.14'
     },
     { 
-      id: 2,
-      foreignPoliticalEntityName: 'יישות2',
-      donationSum: "1000",
-      foreignPoliticalEntityType: 'מדינה זרה2',
-      donationDesignation: 'donationDesignation',
-      donationConditions: 'donationConditions',
-      coinType: 'דולר ארה"ב',
-      exchangeRateType: 'exchangeRateType'
+      Id: 2,
+      ForeignPoliticalEntityName: 'יישות2',
+      DonationSum: "1000",
+      ForeignPoliticalEntityType: 'מדינה זרה2',
+      DonationDesignation: 'donationDesignation',
+      DonationConditions: 'donationConditions',
+      CoinType: 'דולר ארה"ב',
+      ExchangeRateType: 'exchangeRateType'
     }
   ];
 
@@ -46,12 +52,17 @@ export class DonationService {
   addDonation(donation:Donation): Observable<Donation> {
     return this.http.post<Donation>(`${this.baseUrl}/add`, donation);
  }
- 
+  addToDonationsList(donation: Donation) {
+    this.addDonation(donation).subscribe(donation => {
+      console.log(donation);
+      this.donations.push(donation);
+    });
+  }
 
   updateDonation(donation:Donation) {
     //this.donations.push(donation);
     this.addDonation(donation).subscribe(donation => {
-      let index =  this.donations.indexOf(this.donations.find(d => donation.id == d.id));
+      let index =  this.donations.indexOf(this.donations.find(d => donation.Id == d.Id));
       this.donations[index] = donation;
     });;
  }

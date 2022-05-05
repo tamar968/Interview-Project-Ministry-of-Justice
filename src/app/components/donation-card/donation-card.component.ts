@@ -30,14 +30,14 @@ export class DonationCardComponent implements OnInit {
   ngOnInit(): void {
 
     this.donationForm = new FormGroup({
-      id:new FormControl(this.donation.id),
-      foreignPoliticalEntityName: new FormControl(this.donation.foreignPoliticalEntityName, [Validators.required, Validators.pattern('[a-zA-Z\-\u0590-\u05FF ]+$')]),
-      donationSum: new FormControl(this.donation.donationSum, [Validators.required, Validators.pattern(/\-?\d*\.?\d{1,2}/)]),
-      foreignPoliticalEntityType: new FormControl(this.donation.foreignPoliticalEntityType, [Validators.required]),
-      donationDesignation: new FormControl(this.donation.donationDesignation, [Validators.required]),
-      donationConditions: new FormControl(this.donation.donationConditions),
-      coinType: new FormControl(this.donation.coinType, [Validators.required]),
-      exchangeRateType: new FormControl(this.donation.exchangeRateType, [Validators.required]),
+      id:new FormControl(this.donation.Id),
+      foreignPoliticalEntityName: new FormControl(this.donation.ForeignPoliticalEntityName, [Validators.required, Validators.pattern('[a-zA-Z\-\u0590-\u05FF ]+$')]),
+      donationSum: new FormControl(this.donation.DonationSum, [Validators.required, Validators.pattern(/\-?\d*\.?\d{1,2}/)]),
+      foreignPoliticalEntityType: new FormControl(this.donation.ForeignPoliticalEntityType, [Validators.required]),
+      donationDesignation: new FormControl(this.donation.DonationDesignation, [Validators.required]),
+      donationConditions: new FormControl(this.donation.DonationConditions),
+      coinType: new FormControl(this.donation.CoinType, [Validators.required]),
+      exchangeRateType: new FormControl(this.donation.ExchangeRateType, [Validators.required]),
     });
   }
 
@@ -46,13 +46,13 @@ export class DonationCardComponent implements OnInit {
     console.log(this.donationForm.value);
     if (this.donationForm.valid) {
       this.donation = new Donation();
-      this.donation.foreignPoliticalEntityName = this.donationForm.controls['foreignPoliticalEntityName'].value;
-      this.donation.coinType = this.donationForm.controls['coinType'].value;
-      this.donation.donationDesignation = this.donationForm.controls['donationDesignation'].value;
-      this.donation.donationSum = this.donationForm.controls['donationSum'].value;
-      this.donation.exchangeRateType = this.donationForm.controls['exchangeRateType'].value;
-      this.donation.foreignPoliticalEntityType = this.donationForm.controls['foreignPoliticalEntityType'].value;
-      this.donation.donationConditions = this.donationForm.controls['donationConditions'].value;
+      this.donation.ForeignPoliticalEntityName = this.donationForm.controls['foreignPoliticalEntityName'].value;
+      this.donation.CoinType = this.donationForm.controls['coinType'].value;
+      this.donation.DonationDesignation = this.donationForm.controls['donationDesignation'].value;
+      this.donation.DonationSum = this.donationForm.controls['donationSum'].value;
+      this.donation.ExchangeRateType = this.donationForm.controls['exchangeRateType'].value;
+      this.donation.ForeignPoliticalEntityType = this.donationForm.controls['foreignPoliticalEntityType'].value;
+      this.donation.DonationConditions = this.donationForm.controls['donationConditions'].value;
 
       this.donationSvc.updateDonation(this.donation);
       // this.editMode = false;

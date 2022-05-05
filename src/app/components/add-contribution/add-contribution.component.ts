@@ -40,18 +40,16 @@ export class AddContributionComponent implements OnInit {
     console.log(this.donationForm.value);
     if(this.donationForm.valid){
       this.donation = new Donation();
-      this.donation.foreignPoliticalEntityName = this.donationForm.controls['foreignPoliticalEntityName'].value;
-      this.donation.coinType = this.donationForm.controls['coinType'].value;
-      this.donation.donationDesignation = this.donationForm.controls['donationDesignation'].value;
-      this.donation.donationSum = this.donationForm.controls['donationSum'].value;
-      this.donation.exchangeRateType = this.donationForm.controls['exchangeRateType'].value;
-      this.donation.foreignPoliticalEntityType = this.donationForm.controls['foreignPoliticalEntityType'].value;
-      this.donation.donationConditions = this.donationForm.controls['donationConditions'].value;
+      this.donation.ForeignPoliticalEntityName = this.donationForm.controls['foreignPoliticalEntityName'].value;
+      this.donation.CoinType = this.donationForm.controls['coinType'].value;
+      this.donation.DonationDesignation = this.donationForm.controls['donationDesignation'].value;
+      this.donation.DonationSum = this.donationForm.controls['donationSum'].value;
+      this.donation.ExchangeRateType = this.donationForm.controls['exchangeRateType'].value;
+      this.donation.ForeignPoliticalEntityType = this.donationForm.controls['foreignPoliticalEntityType'].value;
+      this.donation.DonationConditions = this.donationForm.controls['donationConditions'].value;
 
       //this.donationSvc.addDonation(this.donation);
-      this.donationSvc.addDonation(this.donation).subscribe(donation => {
-        this.donationSvc.donations.push(donation);
-      });
+      this.donationSvc.addToDonationsList(this.donation);
       this.router.navigate(['donations-list']);
     }
     else{ alert('הטופס אינו חוקי'); }

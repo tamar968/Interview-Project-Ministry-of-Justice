@@ -1,10 +1,10 @@
 export class Donation {
-    id: number;
-    foreignPoliticalEntityName: string;
-    donationSum: string;
-    foreignPoliticalEntityType: string;
-    donationDesignation: string;
-    donationConditions: string;
-    coinType: string;
-    exchangeRateType: string;
+    Id: number;
+    ForeignPoliticalEntityName: string;
+    DonationSum: string;
+    ForeignPoliticalEntityType: string;
+    DonationDesignation: string;
+    DonationConditions: string;
+    CoinType: string;
+    ExchangeRateType: string;
 }
