@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Donation } from 'src/app/models/donation';
 import { DonationService } from 'src/app/services/donation.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddContributionComponent } from '../add-contribution/add-contribution.component';
 import { Router } from '@angular/router';
 
@@ -12,17 +12,17 @@ import { Router } from '@angular/router';
 })
 export class DonationsListComponent implements OnInit {
 
-  donationsList : Donation[]
+  donationsList: Donation[]
   dialog: any;
-  
-  constructor( protected donationSvc: DonationService,
-    private router:Router
-) { }
+
+  constructor(protected donationSvc: DonationService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.donationsList = this.donationSvc.getDonationList();
   }
-  addDonation(){
+  addDonation() {
     this.router.navigate(['add-donation']);
   }
 }

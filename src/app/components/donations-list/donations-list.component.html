@@ -1,4 +1,7 @@
-<div *ngFor="let d of donationsList">
-    <app-donation-card [donation]="d"></app-donation-card>
+<div class="donations-list-wrap">
+    <h2>רשימת תרומות</h2>
+    <div *ngFor="let d of donationsList">
+        <app-donation-card [donation]="d"></app-donation-card>
+    </div>
+    <button mat-raised-button (click)="addDonation()" color="primary">הוספת תרומה</button>
 </div>
-<button mat-raised-button (click)="addDonation()" color="primary">הוספת תרומה</button>

@@ -1,10 +1,10 @@
 <div class="donation-card-wrap" [ngClass]="{'edit-mode': editMode }">
     <div class="d-flex flex-row justify-content-between top-card-area">
-        <div>
+        <div class="p-2">
             <span class="font-weight-bold">{{ donation.foreignPoliticalEntityName }}</span>
-            <span>{{ donation.donationSum }}</span><span>ש"ח</span>
+            <span>{{ " "+donation.donationSum }}</span><span> ש"ח </span>
         </div>
-        <div class="actions d-flex">
+        <div class="actions d-flex px-2">
             <button mat-icon-button (click)="toggleMode()">
                 <mat-icon>edit</mat-icon>
             </button>
@@ -16,15 +16,15 @@
             </button>
 
             <ng-container *ngIf="editMode">
-                    <mat-icon color="primary" class="align-self-center">keyboard_arrow_up</mat-icon>
+                <mat-icon color="primary" class="align-self-center">keyboard_arrow_up</mat-icon>
             </ng-container>
             <ng-container *ngIf="!editMode">
-                    <mat-icon color="primary"  class="align-self-center">keyboard_arrow_down</mat-icon>
+                <mat-icon color="primary" class="align-self-center">keyboard_arrow_down</mat-icon>
             </ng-container>
-            
+
         </div>
     </div>
-    
+
     <ng-container *ngIf="editMode">
         <ng-container *ngTemplateOutlet="donationFormTemplate"></ng-container>
     </ng-container>
@@ -33,6 +33,7 @@
 
 <ng-template #donationFormTemplate>
     <form (ngSubmit)="submit()" class="edit-cont-form" [formGroup]="donationForm">
+        <input formControlName="id" hidden class="d-none"/>
         <div class="form-field">
             <mat-form-field appearance="outline" color="primary">
                 <mat-label>שם הישות המדינית הזרה</mat-label>

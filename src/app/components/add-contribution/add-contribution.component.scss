@@ -1,14 +1,20 @@
-form.add-cont-form{
+.add-donations-wrap {
+  margin-block: 50px;
+  width: 50vw;
+  margin-inline: auto;
+  min-width: 300px;
 
+  form.add-cont-form {
     max-width: 700px;
 
     .form-field {
-        display: inline-block;
-        margin-inline: 10px;
-        ::ng-deep{
-           span.mat-form-field-required-marker {
-             color: red;
-            } 
+      display: inline-block;
+      margin-inline: 10px;
+      ::ng-deep {
+        span.mat-form-field-required-marker {
+          color: red;
         }
+      }
     }
+  }
 }

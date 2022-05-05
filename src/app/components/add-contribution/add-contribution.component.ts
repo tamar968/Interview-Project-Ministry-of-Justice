@@ -43,12 +43,15 @@ export class AddContributionComponent implements OnInit {
       this.donation.foreignPoliticalEntityName = this.donationForm.controls['foreignPoliticalEntityName'].value;
       this.donation.coinType = this.donationForm.controls['coinType'].value;
       this.donation.donationDesignation = this.donationForm.controls['donationDesignation'].value;
-      this.donation.donationSum = parseInt(this.donationForm.controls['donationSum'].value);
+      this.donation.donationSum = this.donationForm.controls['donationSum'].value;
       this.donation.exchangeRateType = this.donationForm.controls['exchangeRateType'].value;
       this.donation.foreignPoliticalEntityType = this.donationForm.controls['foreignPoliticalEntityType'].value;
       this.donation.donationConditions = this.donationForm.controls['donationConditions'].value;
 
-      this.donationSvc.addDonation(this.donation);
+      //this.donationSvc.addDonation(this.donation);
+      this.donationSvc.addDonation(this.donation).subscribe(donation => {
+        this.donationSvc.donations.push(donation);
+      });
       this.router.navigate(['donations-list']);
     }
     else{ alert('הטופס אינו חוקי'); }

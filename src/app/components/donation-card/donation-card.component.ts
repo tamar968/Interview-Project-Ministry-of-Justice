@@ -12,50 +12,52 @@ import { Donation } from '../../models/donation';
 })
 export class DonationCardComponent implements OnInit {
 
- @Input() donation:Donation;
- public editMode:boolean = false;
+  @Input() donation: Donation;
+  public editMode: boolean = false;
 
- 
- public foreignPoliticalEntityTypes = Object.values(ForeignPoliticalEntityType);
- public coinsTypes = Object.values(CoinType);
- 
+
+  public foreignPoliticalEntityTypes = Object.values(ForeignPoliticalEntityType);
+  public coinsTypes = Object.values(CoinType);
+
   donationForm: FormGroup;
 
-  constructor( protected donationSvc: DonationService) { }
+  constructor(protected donationSvc: DonationService) { }
 
-  toggleMode(){
+  toggleMode() {
     this.editMode = !this.editMode;
   }
 
   ngOnInit(): void {
-    
-  this.donationForm = new FormGroup({
-    foreignPoliticalEntityName: new FormControl(this.donation.foreignPoliticalEntityName, [Validators.required, Validators.pattern('[a-zA-Z\-\u0590-\u05FF ]+$')]),
-    donationSum : new FormControl(this.donation.donationSum, [Validators.required, Validators.pattern(/\-?\d*\.?\d{1,2}/)]),
-    foreignPoliticalEntityType : new FormControl(this.donation.foreignPoliticalEntityType, [Validators.required]),
-    donationDesignation : new FormControl(this.donation.donationDesignation, [Validators.required]),
-    donationConditions: new FormControl(this.donation.donationConditions),
-    coinType : new FormControl(this.donation.coinType, [Validators.required]),
-    exchangeRateType : new FormControl(this.donation.exchangeRateType, [Validators.required]),
+
+    this.donationForm = new FormGroup({
+      id:new FormControl(this.donation.id),
+      foreignPoliticalEntityName: new FormControl(this.donation.foreignPoliticalEntityName, [Validators.required, Validators.pattern('[a-zA-Z\-\u0590-\u05FF ]+$')]),
+      donationSum: new FormControl(this.donation.donationSum, [Validators.required, Validators.pattern(/\-?\d*\.?\d{1,2}/)]),
+      foreignPoliticalEntityType: new FormControl(this.donation.foreignPoliticalEntityType, [Validators.required]),
+      donationDesignation: new FormControl(this.donation.donationDesignation, [Validators.required]),
+      donationConditions: new FormControl(this.donation.donationConditions),
+      coinType: new FormControl(this.donation.coinType, [Validators.required]),
+      exchangeRateType: new FormControl(this.donation.exchangeRateType, [Validators.required]),
     });
   }
 
- 
-  submit(){
+
+  submit() {
     console.log(this.donationForm.value);
-    if(this.donationForm.valid){
+    if (this.donationForm.valid) {
       this.donation = new Donation();
       this.donation.foreignPoliticalEntityName = this.donationForm.controls['foreignPoliticalEntityName'].value;
       this.donation.coinType = this.donationForm.controls['coinType'].value;
       this.donation.donationDesignation = this.donationForm.controls['donationDesignation'].value;
-      this.donation.donationSum = parseInt(this.donationForm.controls['donationSum'].value);
+      this.donation.donationSum = this.donationForm.controls['donationSum'].value;
       this.donation.exchangeRateType = this.donationForm.controls['exchangeRateType'].value;
       this.donation.foreignPoliticalEntityType = this.donationForm.controls['foreignPoliticalEntityType'].value;
       this.donation.donationConditions = this.donationForm.controls['donationConditions'].value;
 
       this.donationSvc.updateDonation(this.donation);
+      // this.editMode = false;
     }
-    else{ alert('הטופס אינו חוקי'); }
+    else { alert('הטופס אינו חוקי'); }
   }
- 
+
 }

@@ -1,6 +1,7 @@
 export class Donation {
+    id: number;
     foreignPoliticalEntityName: string;
-    donationSum: number;
+    donationSum: string;
     foreignPoliticalEntityType: string;
     donationDesignation: string;
     donationConditions: string;

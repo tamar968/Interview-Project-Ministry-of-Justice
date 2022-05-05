@@ -9,7 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DonationsListComponent } from 'src/app/components/donations-list/donations-list.component';
 import { DonationCardComponent } from 'src/app/components/donation-card/donation-card.component';
 import { MatOptionModule } from '@angular/material/core';
-import {MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatSelectModule } from '@angular/material/select'
     MatSelectModule,
     MatOptionModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class AddContributionModule { }

@@ -42,7 +42,8 @@ $text-color:#0c3058;
  #my-app{
 
     html, body { height: 100%; }
-    body { margin: 0;
+    body { 
+      margin: 0;
       font-family: Roboto, "Helvetica Neue", sans-serif;
       color:$text-color;
     }
@@ -53,4 +54,7 @@ $text-color:#0c3058;
     .mat-stroked-button:not(.mat-button-disabled){
       border-color: $primary-color;
     }
+    .font-weight-bold {
+      font-weight: bold;
+  }
  }
