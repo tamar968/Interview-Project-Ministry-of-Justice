@@ -30,7 +30,7 @@ export class DonationCardComponent implements OnInit {
   ngOnInit(): void {
 
     this.donationForm = new FormGroup({
-      id:new FormControl(this.donation.Id),
+      id: new FormControl(this.donation.Id),
       foreignPoliticalEntityName: new FormControl(this.donation.ForeignPoliticalEntityName, [Validators.required, Validators.pattern('[a-zA-Z\-\u0590-\u05FF ]+$')]),
       donationSum: new FormControl(this.donation.DonationSum, [Validators.required, Validators.pattern(/\-?\d*\.?\d{1,2}/)]),
       foreignPoliticalEntityType: new FormControl(this.donation.ForeignPoliticalEntityType, [Validators.required]),

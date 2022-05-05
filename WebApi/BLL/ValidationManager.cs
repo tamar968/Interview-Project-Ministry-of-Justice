@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace BLL
 {
-    public static class Validation
+    public static class ValidationManager
     {
         public static bool RegexMatch(string input, string regex) {
 

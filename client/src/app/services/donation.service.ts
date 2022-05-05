@@ -11,42 +11,14 @@ export class DonationService {
 
   private baseUrl = AppComponent.getBaseUrl() + "/donation";
 
-  donations: Donation[] = [
-    // {
-    //   Id: 1,
-    //   ForeignPoliticalEntityName: 'יישות1',
-    //   DonationSum: "100",
-    //   ForeignPoliticalEntityType: 'מדינה זרה',
-    //   DonationDesignation: 'donationDesignation',
-    //   DonationConditions: 'donationConditions',
-    //   CoinType: 'דולר ארה"ב',
-    //   ExchangeRateType: '3.14'
-    // },
-    // {
-    //   Id: 2,
-    //   ForeignPoliticalEntityName: 'יישות2',
-    //   DonationSum: "1000",
-    //   ForeignPoliticalEntityType: 'מדינה זרה',
-    //   DonationDesignation: 'donationDesignation',
-    //   DonationConditions: 'donationConditions',
-    //   CoinType: 'דולר ארה"ב',
-    //   ExchangeRateType: 'exchangeRateType'
-    // }
-  ];
+  donations: Donation[] = [];
 
-  constructor(protected http: HttpClient) { 
+  constructor(protected http: HttpClient) {
     this.getDonation().subscribe(donations => this.donations = donations);
   }
 
-  // getDonationsList(): Observable<Donation> {
-  // }
-
-  // addDonation(donation:Donation) {
-  //    this.donations.push(donation);
-  // }
-
-  getDonation():Observable<Donation[]> {
-    return this.http.get<Donation[]>(`${this.baseUrl}/get` );
+  getDonation(): Observable<Donation[]> {
+    return this.http.get<Donation[]>(`${this.baseUrl}/get`);
   }
   addDonation(donation: Donation): Observable<Donation> {
     return this.http.post<Donation>(`${this.baseUrl}/add`, donation);
@@ -59,7 +31,12 @@ export class DonationService {
     this.addDonation(donation).subscribe(donation => {
       console.log(donation);
       this.donations.push(donation);
-    });
+    },
+      err => {
+        alert("אופס... התרחשה שגיאה " + err)
+      },
+      () => alert("תרומה נוספה בהצלחה")
+    );
   }
 
   updateInDonationsList(donation: Donation) {
@@ -67,7 +44,11 @@ export class DonationService {
       console.log(don);
       let index = this.donations.indexOf(this.donations.find(d => don.Id == d.Id));
       this.donations[index] = don;
-    });;
+    },
+      err => {
+        alert("אופס... התרחשה שגיאה " + err)
+      },
+      () => alert("תרומה התעדכנה בהצלחה"));;
   }
 
   getDonationList(): Donation[] {

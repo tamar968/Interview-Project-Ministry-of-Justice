@@ -5,18 +5,14 @@ import { DonationsListComponent } from './components/donations-list/donations-li
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AddContributionComponent
-  },
-  {
-    path: 'add-donation',
-    component: AddContributionComponent
-  },
-  {
-    path: 'donations-list',
-    component: DonationsListComponent
-  }
+  // {
+  //   path: 'add-donation',
+  //   loadChildren: ()=> import('src/app/modules/contribution/contribution.module').then(m => m.ContributionModule)
+  // },
+  // {
+  //   path: 'donations-list',
+  //   component: DonationsListComponent
+  // }
 ];
 
 @NgModule({

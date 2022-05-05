@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddContributionModule } from './modules/add-contribution/add-contribution.module';
+import { ContributionModule } from './modules/contribution/contribution.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { AddContributionModule } from './modules/add-contribution/add-contributi
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AddContributionModule
+    ContributionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

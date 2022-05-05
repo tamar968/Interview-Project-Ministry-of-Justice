@@ -1,9 +1,8 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
-
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -22,39 +21,47 @@ $project-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$project-theme: mat-light-theme((
-  color: (
-    primary: $project-primary,
-    accent: $project-accent,
-    warn: $project-warn,
+$project-theme: mat-light-theme(
+  (
+    color: (
+      primary: $project-primary,
+      accent: $project-accent,
+      warn: $project-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
+
 @include angular-material-theme($project-theme);
 
-$primary-color:#2196f3;
-$text-color:#0c3058;
-/* You can add global styles to this file, and also import other style files */
+$primary-color: #2196f3;
+$text-color: #0c3058;
 
- #my-app{
 
-    html, body { height: 100%; }
-    body { 
-      margin: 0;
-      font-family: Roboto, "Helvetica Neue", sans-serif;
-      color:$text-color;
-    }
-   .mat-button, .mat-stroked-button, .mat-flat-button,.mat-raised-button{
-      min-width: 200px;
-      border-radius: 50px;
-    }
-    .mat-stroked-button:not(.mat-button-disabled){
-      border-color: $primary-color;
-    }
-    .font-weight-bold {
-      font-weight: bold;
+#my-app {
+  html,
+  body {
+    height: 100%;
   }
- }
+  body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: $text-color;
+  }
+  .mat-button,
+  .mat-stroked-button,
+  .mat-flat-button,
+  .mat-raised-button {
+    min-width: 200px;
+    border-radius: 50px;
+  }
+  .mat-stroked-button:not(.mat-button-disabled) {
+    border-color: $primary-color;
+  }
+  .font-weight-bold {
+    font-weight: bold;
+  }
+}

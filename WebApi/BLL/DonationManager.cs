@@ -12,12 +12,12 @@ namespace BLL
     {
         public static bool isValidDonation(Donation donation)
         {
-            return Validation.IsNotEmpty(donation.ForeignPoliticalEntityName) && Validation.IsOnlyHebrewAndEnglishChars(donation.ForeignPoliticalEntityName) &&
-                Validation.IsNotEmpty(donation.CoinType) &&
-                Validation.IsNotEmpty(donation.DonationDesignation) && Validation.IsOnlyHebrewAndEnglishChars(donation.DonationDesignation) &&
-                Validation.IsNotEmpty(donation.DonationSum) &&
-                Validation.IsNotEmpty(donation.ExchangeRateType) &&
-                Validation.IsNotEmpty(donation.ForeignPoliticalEntityType);
+            return ValidationManager.IsNotEmpty(donation.ForeignPoliticalEntityName) && ValidationManager.IsOnlyHebrewAndEnglishChars(donation.ForeignPoliticalEntityName) &&
+                ValidationManager.IsNotEmpty(donation.CoinType) &&
+                ValidationManager.IsNotEmpty(donation.DonationDesignation) && ValidationManager.IsOnlyHebrewAndEnglishChars(donation.DonationDesignation) &&
+                ValidationManager.IsNotEmpty(donation.DonationSum) &&
+                ValidationManager.IsNotEmpty(donation.ExchangeRateType) &&
+                ValidationManager.IsNotEmpty(donation.ForeignPoliticalEntityType);
         }
 
         public static List<Donation> GetDonationsList()

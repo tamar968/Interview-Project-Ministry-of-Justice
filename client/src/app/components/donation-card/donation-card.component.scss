@@ -1,35 +1,29 @@
+.donation-card-wrap {
+  min-width: 300px;
+  max-width: 700px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
 
-.donation-card-wrap{
-    min-width: 300px;
+  &.edit-mode {
+    background-color: #e7f1ff;
+    border-color: #2196f3;
+  }
+
+  form.edit-cont-form {
+    padding: 30px 20px 25px 40px;
+    background-color: #fff;
     max-width: 700px;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 5px;
 
-    &.edit-mode{
-        background-color: #e7f1ff;
-        border-color: #2196f3;
-    }
-   
-
-    .top-card-area{
-
-    }
-    form.edit-cont-form{
-        padding: 30px 20px 25px 40px;
-        background-color: #fff;
-        max-width: 700px;
-
-        .form-field {
-        
-            ::ng-deep{
-                mat-form-field{
-                    width: 100%;
-                }
-            span.mat-form-field-required-marker {
-                color: red;
-                } 
-            }
+    .form-field {
+      ::ng-deep {
+        mat-form-field {
+          width: 100%;
         }
+        span.mat-form-field-required-marker {
+          color: red;
+        }
+      }
     }
+  }
 }
